@@ -3,7 +3,6 @@ import { getAllItems, getItemById, createItem, updateItem, deleteItem } from '..
 
 const router = Router();
 
-// POST (create) new item
 router.post('/', async (req: Request, res: Response) => {
   try {
     const { name, description } = req.body;
@@ -17,7 +16,6 @@ router.post('/', async (req: Request, res: Response) => {
   }
 });
 
-// GET all items
 router.get('/', async (req: Request, res: Response) => {
   try {
     const items = await getAllItems();
@@ -27,7 +25,6 @@ router.get('/', async (req: Request, res: Response) => {
   }
 });
 
-// GET item by ID
 router.get('/:id', async (req: Request, res: Response) => {
   try {
     const item = await getItemById(Number(req.params.id));
@@ -41,7 +38,6 @@ router.get('/:id', async (req: Request, res: Response) => {
   }
 });
 
-// PUT (update) item by ID
 router.put('/:id', async (req: Request, res: Response) => {
   try {
     const { name, description } = req.body;
@@ -52,7 +48,6 @@ router.put('/:id', async (req: Request, res: Response) => {
   }
 });
 
-// DELETE item by ID
 router.delete('/:id', async (req: Request, res: Response) => {
   try {
     await deleteItem(Number(req.params.id));
